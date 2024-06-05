@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import Logo from "../../../assets/logo.png";
 
 const Sidebar = () => {
@@ -12,8 +12,18 @@ const Sidebar = () => {
       </div>
       {/* Sidebar Content */}
       <ul className="p-2">
-        <li className="py-1 px-4 cursor-pointer hover:bg-gray-700">
-          <Link to="/manage-beneficiary">Manage Beneficiary</Link>
+        <li>
+          <NavLink
+            to="/manage-beneficiary"
+            // className="py-1 px-4 cursor-pointer hover:bg-gray-700"
+            className={({ isActive }) => {
+              return isActive
+                ? "py-1 px-4 active cursor-pointer bg-gray-700 w-full inline-block"
+                : "py-1 px-4 cursor-pointer hover:bg-gray-700 w-full inline-block";
+            }}
+          >
+            Manage Beneficiary
+          </NavLink>
         </li>
       </ul>
     </div>

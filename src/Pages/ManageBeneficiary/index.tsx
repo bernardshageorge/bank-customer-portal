@@ -52,7 +52,7 @@ const ManageBeneficiary = () => {
                 <div>
                   <button
                     onClick={() => setViewId(eachBeneficiary)}
-                    className="bg-blue-500 hover:bg-blue-700 text-white py-1 px-2 rounded mr-2"
+                    className="bg-blue-500 hover:bg-blue-700 text-white py-1 px-2 rounded mr-2 text-sm"
                   >
                     View
                   </button>
@@ -61,13 +61,13 @@ const ManageBeneficiary = () => {
                       setIsOpen(true);
                       setBeneficiaryToUpdate(eachBeneficiary);
                     }}
-                    className="bg-blue-500 hover:bg-blue-700 text-white py-1 px-2 rounded mr-2"
+                    className="bg-blue-500 hover:bg-blue-700 text-white py-1 px-2 rounded mr-2 text-sm"
                   >
                     Edit
                   </button>
                   <button
                     onClick={() => setDeleteId(id)}
-                    className="bg-red-500 hover:bg-red-700 text-white py-1 px-2 rounded"
+                    className="bg-red-500 hover:bg-red-700 text-white py-1 px-2 rounded text-sm"
                   >
                     Delete
                   </button>
