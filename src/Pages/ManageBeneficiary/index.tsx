@@ -42,7 +42,9 @@ const ManageBeneficiary = () => {
           <div className="flex justify-center ">
             <div className="border border-dashed border-gray-300 inline-flex items-center flex-col gap-2 px-6 py-2 rounded-md mt-6">
               <InboxArrowDownIcon className="w-6 h-6" />
-              <span className="font-semibold text-sm">No Data...</span>
+              <span className="font-semibold text-sm">
+                No Beneficiary Added
+              </span>
             </div>
           </div>
         ) : (
