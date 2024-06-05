@@ -6,13 +6,19 @@ import { deleteBeneficiary } from "../../store/BeneficiaryReducer";
 import { PlusCircleIcon } from "@heroicons/react/24/solid";
 import Modal from "../../Components/Modal";
 import AppLayout from "../../Components/AppLayout";
+import {
+  EyeIcon,
+  InboxArrowDownIcon,
+  PencilIcon,
+  TrashIcon,
+} from "@heroicons/react/24/outline";
 
 const ManageBeneficiary = () => {
   const dispatch = useAppDispatch();
   const beneficiaryList = useAppSelector((state) => state.beneficiary);
   const [beneficiaryToUpdate, setBeneficiaryToUpdate] =
     useState<BeneficiaryType | null>(null);
-  const [deleteId, setDeleteId] = useState("");
+  const [deleteId, setDeleteId] = useState<string | undefined>("");
   const [isOpen, setIsOpen] = useState(false);
   const [viewId, setViewId] = useState<BeneficiaryType | null>(null);
 
@@ -32,6 +38,16 @@ const ManageBeneficiary = () => {
             Add Beneficiary <PlusCircleIcon className="w-4 h-4" />
           </button>
         </div>
+        {!beneficiaryList.length ? (
+          <div className="flex justify-center ">
+            <div className="border border-dashed border-gray-300 inline-flex items-center flex-col gap-2 px-6 py-2 rounded-md mt-6">
+              <InboxArrowDownIcon className="w-6 h-6" />
+              <span className="font-semibold text-sm">No Data...</span>
+            </div>
+          </div>
+        ) : (
+          <></>
+        )}
         <ul className="">
           {beneficiaryList?.map((eachBeneficiary: BeneficiaryType) => {
             const { name, bankName, accountType, id } = eachBeneficiary || {};
@@ -42,34 +58,37 @@ const ManageBeneficiary = () => {
               >
                 <div>
                   <h2 className="text-lg font-semibold">
-                    {name}{" "}
-                    <span className="border border-gray-300 rounded inline-block text-sm font-thin px-2">
+                    {name}
+                    <span className="border border-gray-300 rounded inline-block text-xs px-2 ml-2">
                       {accountType}
                     </span>
                   </h2>
                   <span className="text-sm">{bankName}</span>
                 </div>
-                <div>
+                <div className="flex gap-2">
                   <button
                     onClick={() => setViewId(eachBeneficiary)}
-                    className="bg-blue-500 hover:bg-blue-700 text-white py-1 px-2 rounded mr-2 text-sm"
+                    className="bg-blue-500 hover:bg-blue-700 text-white py-1 px-2 rounded text-sm"
+                    title="View"
                   >
-                    View
+                    <EyeIcon className="w-4 h-4" />
                   </button>
                   <button
                     onClick={() => {
                       setIsOpen(true);
                       setBeneficiaryToUpdate(eachBeneficiary);
                     }}
-                    className="bg-blue-500 hover:bg-blue-700 text-white py-1 px-2 rounded mr-2 text-sm"
+                    className="bg-blue-500 hover:bg-blue-700 text-white py-1 px-2 rounded text-sm flex gap-1"
+                    title="Edit"
                   >
-                    Edit
+                    <PencilIcon className="w-4 h-4" />
                   </button>
                   <button
                     onClick={() => setDeleteId(id)}
                     className="bg-red-500 hover:bg-red-700 text-white py-1 px-2 rounded text-sm"
+                    title="Delete"
                   >
-                    Delete
+                    <TrashIcon className="w-4 h-4" />
                   </button>
                 </div>
               </li>
