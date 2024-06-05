@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import Logo from "../../../assets/logo.png";
 
 const Sidebar = () => {
   return (
@@ -6,11 +7,7 @@ const Sidebar = () => {
       {/* Logo */}
       <div className="p-4">
         <Link to="/">
-          <img
-            src="https://placehold.jp/200x60.png"
-            alt="Logo"
-            className="w-full"
-          />
+          <img src={Logo} alt="Logo" className="w-full" />
         </Link>
       </div>
       {/* Sidebar Content */}
