@@ -16,7 +16,7 @@ const Modal = ({
       <div
         className={`flex items-center justify-center text-center ${
           className ? className : ""
-        } align-middle`}
+        }`}
       >
         <div className="fixed inset-0 transition-opacity" aria-hidden="true">
           <div className="absolute inset-0 bg-gray-500 opacity-75"></div>
@@ -29,7 +29,7 @@ const Modal = ({
           &#8203;
         </span>
 
-        <div className="inline-block bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:max-w-lg w-full align-middle">
+        <div className="inline-block bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:max-w-lg w-full self-center">
           <div className="px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
             <div className="sm:flex sm:items-start w-full">
               <div className="text-center sm:mt-0 sm:text-left w-full">

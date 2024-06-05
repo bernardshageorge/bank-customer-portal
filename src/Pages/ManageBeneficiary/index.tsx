@@ -140,7 +140,7 @@ const ManageBeneficiary = () => {
 
       {viewId && (
         <Modal
-          title={"Beneficiary"}
+          title={"Beneficiary Details"}
           onClose={() => setViewId(null)}
           className="min-h-screen"
         >

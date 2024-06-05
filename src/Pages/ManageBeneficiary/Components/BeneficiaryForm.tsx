@@ -156,6 +156,7 @@ export default function BeneficiaryForm({
               : "Sure, Add beneficiary?"
           }
           onClose={() => setBeneficiaryData(null)}
+          className="min-h-full"
         >
           <div className="flex gap-2 justify-end">
             <button
