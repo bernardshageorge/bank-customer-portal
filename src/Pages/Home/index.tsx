@@ -1,11 +1,7 @@
-import { Link } from "react-router-dom";
+import AppLayout from "../../Components/AppLayout";
 
 const Home = () => {
-  return (
-    <>
-      <Link to="/manage-beneficiary">Manage Beneficiary</Link>
-    </>
-  );
+  return <AppLayout>Home</AppLayout>;
 };
 
 export default Home;

@@ -1,28 +1,33 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { BeneficiaryType } from "./types";
+import { v4 as uuidv4 } from "uuid";
 
 const beneficiarySlice = createSlice({
   name: "beneficiary",
-  initialState: [] as BeneficiaryType[],
+  initialState: { beneficiary: [] as BeneficiaryType[] },
   reducers: {
     addBeneficiary: (state, { payload }: PayloadAction<BeneficiaryType>) => {
-      state.push(payload);
+      const id = uuidv4();
+      const newData = { ...payload, id };
+      console.log(newData);
+      state.beneficiary.push(newData);
     },
     updateBeneficiary: (
       state,
-      { payload }: PayloadAction<{ idx: number; data: BeneficiaryType }>
+      { payload }: PayloadAction<{ data: BeneficiaryType }>
     ) => {
-      const { idx, data } = payload;
-      const updatedState = state.map((sData, index) => {
-        if (index === idx) return data;
+      const { data } = payload;
+      const updatedState = state.beneficiary.map((sData) => {
+        if (sData.id === data.id) return data;
         return sData;
       });
-      state = updatedState;
+      console.log(updatedState, "updatedState");
+      state.beneficiary = updatedState;
     },
-    deleteBeneficiary: (state, { payload }: PayloadAction<{ idx: number }>) => {
-      const { idx } = payload;
-      const updatedState = state.filter((_sData, index) => index !== idx);
-      state = updatedState;
+    deleteBeneficiary: (state, { payload }: PayloadAction<{ id: string }>) => {
+      const { id } = payload;
+      const updatedState = state.beneficiary.filter((sData) => id !== sData.id);
+      state.beneficiary = updatedState;
     },
   },
 });
