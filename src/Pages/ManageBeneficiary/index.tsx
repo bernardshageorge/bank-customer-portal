@@ -34,19 +34,20 @@ const ManageBeneficiary = () => {
         </div>
         <ul className="">
           {beneficiaryList?.map((eachBeneficiary: BeneficiaryType) => {
-            const { name, bankName, accountNumber, accountType, id } =
-              eachBeneficiary || {};
+            const { name, bankName, accountType, id } = eachBeneficiary || {};
             return (
               <li
                 key={id}
                 className="flex justify-between items-start border-b border-gray-200 py-4"
               >
                 <div>
-                  <h2 className="text-lg font-semibold">{name}</h2>
+                  <h2 className="text-lg font-semibold">
+                    {name}{" "}
+                    <span className="border border-gray-300 rounded inline-block text-sm font-thin px-2">
+                      {accountType}
+                    </span>
+                  </h2>
                   <span className="text-sm">{bankName}</span>
-                  <p className="text-sm">
-                    <span>{accountNumber}</span> : <span>{accountType}</span>
-                  </p>
                 </div>
                 <div>
                   <button
