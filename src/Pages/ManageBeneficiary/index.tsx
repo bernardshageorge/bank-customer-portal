@@ -26,7 +26,7 @@ const ManageBeneficiary = () => {
         <div className="flex justify-between mb-4">
           <h1 className="text-2xl font-bold ">Manage Beneficiary</h1>
           <button
-            className=" bg-blue-500 hover:bg-blue-700 text-white py-1 px-2 rounded flex gap-2 items-center"
+            className=" bg-blue-500 hover:bg-blue-700 text-white py-1 px-2 rounded flex gap-2 items-center text-sm"
             onClick={() => setIsOpen(true)}
           >
             Add Beneficiary <PlusCircleIcon className="w-4 h-4" />
@@ -76,48 +76,6 @@ const ManageBeneficiary = () => {
             );
           })}
         </ul>
-        {/* <table className="min-w-full bg-white border border-gray-200">
-          <thead>
-            <tr>
-              <th className="py-2 px-4 border">Name</th>
-              <th className="py-2 px-4 border">Account Number</th>
-              <th className="py-2 px-4 border">Bank Name</th>
-              <th className="py-2 px-4 border">Account Type</th>
-              <th className="py-2 px-4 border">Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            {beneficiaryList?.map((eachBeneficiary: BeneficiaryType) => {
-              const { name, bankName, accountNumber, accountType, id } =
-                eachBeneficiary || {};
-              return (
-                <tr key={id} className="border-b hover:bg-gray-50 text-center">
-                  <td className="py-2 px-4 border-r">{name}</td>
-                  <td className="py-2 px-4 border-r">{accountNumber}</td>
-                  <td className="py-2 px-4 border-r">{bankName}</td>
-                  <td className="py-2 px-4 border-r">{accountType}</td>
-                  <td className="py-2 px-4 border-r flex gap-2 justify-center">
-                    <button
-                      onClick={() => {
-                        setIsOpen(true);
-                        setBeneficiaryToUpdate(eachBeneficiary);
-                      }}
-                      className="bg-blue-500 hover:bg-blue-700 text-white py-1 px-2 rounded"
-                    >
-                      Edit
-                    </button>
-                    <button
-                      onClick={() => dispatch(deleteBeneficiary({ id }))}
-                      className="bg-red-500 hover:bg-red-700 text-white py-1 px-2 rounded"
-                    >
-                      Delete
-                    </button>
-                  </td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table> */}
       </div>
       {isOpen && (
         <Modal
